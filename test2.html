@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./js/slick-1.8.1/slick/slick.css" />
+        <link rel="stylesheet" href="./js/slick-1.8.1/slick/slick-theme.css" />
+
+</head>
+
+<body>
+
+
+        <div id="hero-slider" class="hero-slider">
+                <div class="slide active">
+                        <img src="./img/hero-img_04.jpg" alt="ヒーローイメージ1" width="1920" height="1047">
+                </div>
+                <div class="slide">
+                        <img src="./img/hero-img_02.jpg" alt="ヒーローイメージ2" width="1920" height="1047">
+                </div>
+        </div>
+
+
+        <script src="js/jquery-3.7.1.min.js"></script>
+        <script src="./js/slick-1.8.1/slick/slick.js"></script>
+        <script src="./js/slick-1.8.1/slick/slick.min.js"></script>
+        <script>
+                const slides = document.querySelectorAll('#hero-slider .slide');
+                let current = 0;
+                const slideInterval = 5000;
+                let autoSlide = setInterval(nextSlide, slideInterval);
+
+                function showSlide(index) {
+                        slides.forEach((slide, i) => {
+                                slide.classList.toggle('active', i === index);
+                        });
+                        current = index;
+                }
+
+                function nextSlide() {
+                        showSlide((current + 1) % slides.length);
+                }
+
+                // タッチ操作
+                let startX = 0;
+                let endX = 0;
+                const slider = document.getElementById('hero-slider');
+
+                slider.addEventListener('touchstart', e => {
+                        startX = e.touches[0].clientX;
+                });
+
+                slider.addEventListener('touchmove', e => {
+                        endX = e.touches[0].clientX;
+                });
+
+                slider.addEventListener('touchend', () => {
+                        const diff = startX - endX;
+                        if (diff > 50) { // 左スワイプ
+                                nextSlide();
+                                resetAutoSlide();
+                        } else if (diff < -50) { // 右スワイプ
+                                showSlide((current - 1 + slides.length) % slides.length);
+                                resetAutoSlide();
+                        }
+                });
+
+                function resetAutoSlide() {
+                        clearInterval(autoSlide);
+                        autoSlide = setInterval(nextSlide, slideInterval);
+                }
+        </script>
+
+</body>
+
+</html>
