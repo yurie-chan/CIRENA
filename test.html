@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./js/slick-1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="./js/slick-1.8.1/slick/slick-theme.css" />
+
+</head>
+
+<body>
+
+
+    <div class="slick-slider">
+        <div><img src="./img/location/location-yokohama-city_3.jpg" width="340" height="300"
+                alt="『港北の杜公園』まで徒歩9分（約0.7km）"></div>
+        <div><img src="./img/location/location-shop_2.jpg" width="340" height="300"
+                alt="ベーカリー『Maison Blanche』まで徒歩4分（約0.3km）"></div>
+        <div><img src="./img/location/location-yokohama-city_2.jpg" width="340" height="300"
+                alt="潮風ひろば』まで徒歩12分（約1.0km）"></div>
+        <div><img src="./img/location/location-shop_1.jpg" width="340" height="300"
+                alt="カフェ『Café Lumière』まで徒歩6分（約0.45km）"></div>
+        <div><img src="./img/location/location-yokohama-city_5.jpg" width="340" height="300"
+                alt="公園『Riverside Grove』まで徒歩11分（約0.9km）"></div>
+        <div><img src="./img/location/location-yokohama-city_4.jpg" width="340" height="300"
+                alt="ショッピングモール『Urban Square』まで徒歩15分（約1.2km）"></div>
+        <div><img src="./img/location/location-img_2.jpg" width="340" height="300" alt="秋には、山下公園に向かう街路樹がイチョウで美しく彩られます">
+        </div>
+        <div><img src="./img/location/location-yokohama-city_1.jpg" width="340" height="300"
+                alt="施設『赤レンガ倉庫』まで徒歩15分（約1.1km）"></div>
+        <div><img src="./img/location/location-shop_4.jpg" width="340" height="300"
+                alt="ワインバル『Vino Terrace』まで徒歩6分（約0.45km）"></div>
+        <div><img src="./img/location/location-shop_6.jpg" width="340" height="300" alt="カフェ『茶房 みなとの詩』まで徒歩7分（約0.5km）">
+        </div>
+        <div><img src="./img/location/location-yokohama-city_6.jpg" width="340" height="300"
+                alt="公園『Green Horizon Park』まで徒歩10分（約0.8km）"></div>
+        <div><img src="./img/location/location-shop_5.jpg" width="340" height="300"
+                alt="ブックカフェ『文学茶房 書灯』まで徒歩6分（約0.45km）"></div>
+        <div><img src="./img/location/location-shop_3.jpg" width="340" height="300"
+                alt="ベーカリー『Le Soleil Bakery』まで徒歩3分（約0.2km）"></div>
+    </div>
+
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="./js/slick-1.8.1/slick/slick.js"></script>
+    <script src="./js/slick-1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(function () {
+            $('.slick-slider').slick({
+                slidesToShow: 5,       // 〇枚ずつ表示
+                slidesToScroll: 1,
+                autoplay: true,        // 自動再生
+                autoplaySpeed: 3000,   // 0で常にスライド
+                // speed: 8000,    // スライドにかける時間（ミリ秒）
+                cssEase: 'linear',
+                infinite: true,        // 無限ループ
+                arrows: false,         // 左右の矢印は非表示
+                pauseOnHover: false,   // ホバーで止めない
+                responsive: [
+                    { breakpoint: 1440, settings: { slidesToShow: 4 } },
+                    { breakpoint: 1024, settings: { slidesToShow: 4 } },
+                    { breakpoint: 768, settings: { slidesToShow: 4 } },
+                    { breakpoint: 480, settings: { slidesToShow: 3 } }
+                ]
+            });
+        });
+    </script>
+
+</body>
+
+</html>
