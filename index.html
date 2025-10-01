@@ -23,6 +23,11 @@
 </head>
 
 <body>
+
+  <div id="splash-screen">
+    <p class="catchphrase">空と海を臨む、<br class="sp-br">横浜の最前席。</p>
+  </div>
+
   <header id="top">
     <h1><a href="index.html"><img src="./img/logo.png" alt="CIRENA"></a></h1>
     <div class="top-right">
@@ -412,6 +417,36 @@
         current = (current + 1) % slides.length;
         slides[current].classList.add('active');
       }
+
+      window.onload = function () {
+        const splash = document.getElementById('splash-screen');
+        const isVisited = sessionStorage.getItem('hasVisitedSplash');
+
+        if (isVisited) {
+          // ★ 訪問済みの場合：すぐにスプラッシュ画面を非表示にする
+          splash.style.opacity = '0';
+          splash.style.visibility = 'hidden';
+          splash.style.transition = 'none'; // アニメーションを無効化
+
+          // キャッチコピーの要素も非表示にしておく（念のため）
+          const catchphrase = splash.querySelector('.catchphrase');
+          if (catchphrase) {
+            catchphrase.style.opacity = '0';
+          }
+
+        } else {
+          // ★ 初回訪問の場合：アニメーションを実行し、フラグを立てる
+
+          // 訪問フラグを保存 (セッション中のみ有効)
+          sessionStorage.setItem('hasVisitedSplash', 'true');
+
+          // フェードアウトアニメーションを実行 (CSSのタイミングに合わせて調整)
+          // CSSで設定した 2.5秒後にフェードアウトを開始します
+          setTimeout(() => {
+            splash.classList.add('fade-out');
+          }, 2500);
+        }
+      };
     });
 
   </script>

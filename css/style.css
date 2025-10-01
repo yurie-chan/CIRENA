@@ -116,6 +116,62 @@ h3 {
 }
  */
 
+
+/* ===== アクセス時の演出 ===== */
+
+
+/* スプラッシュ画面の基本スタイル */
+#splash-screen {
+    position: fixed;
+    /* 画面全体に固定 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    /* 背景を黒に設定 */
+    color: #ffffff;
+    /* 文字色を白に設定 */
+    z-index: 9999;
+    /* 他の要素の上に重ねる */
+
+    /* 文字を中央に配置 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* 演出のための準備 */
+    opacity: 1;
+    transition: opacity 1.5s ease 1s, visibility 0s 2.5s;
+    /* ↑ 1秒後に1.5秒かけてフェードアウトする設定 */
+}
+
+/* キャッチコピーのスタイル */
+.catchphrase {
+    font-size: 3.0em;
+    /* 見やすいサイズに */
+    letter-spacing: 5px;
+    opacity: 0;
+    /* 最初は透明 */
+    animation: fadeIn 1s forwards;
+    /* フェードインアニメーションを適用 */
+}
+
+/* キャッチコピーのフェードインアニメーション */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* JavaScriptで追加する非表示クラス */
+#splash-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    /* 要素を完全に消す */
+}
+
+
 /* ===== ヘッダー ===== */
 
 header {
@@ -294,9 +350,11 @@ h1 a {
 .hero-slider {
     position: relative;
     width: 100%;
-    height: 832px;
+    height: 43.3vw;
     overflow: hidden;
 }
+
+
 
 .hero-slider .slide {
     position: absolute;
@@ -327,7 +385,7 @@ h1 a {
     line-height: 1.2;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 0.3em;
+    margin-bottom: 50px;
 }
 
 .hero-sub {
