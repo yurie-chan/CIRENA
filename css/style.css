@@ -93,7 +93,7 @@ h2 {
     height: 3px;
     margin: 10px auto 30px;
     background: linear-gradient(to right, transparent, #C9A646, transparent);
-    transition: width 1.8s ease;
+    transition: width 2.5s ease;
 }
 
 .divider.show {
@@ -171,6 +171,27 @@ h3 {
     /* 要素を完全に消す */
 }
 
+/* ふわっと出てくるアニメーションの初期状態 */
+.fade-in {
+    opacity: 0;
+    /* 最初は透明 */
+    transform: translateY(30px);
+    /* 少し下に移動 */
+    transition: opacity 1.0s ease-out, transform 1.0s ease-out;
+    /* アニメーションの時間と種類 */
+    /* ease-out は徐々にゆっくりになるアニメーション */
+    transition-delay: 0.3s;
+    /* 0.3秒遅らせる */
+}
+
+/* 画面内に入った時に追加するクラス */
+.fade-in.is-visible {
+    opacity: 1;
+    /* 不透明にして表示 */
+    transform: translateY(0);
+    /* 元の位置に戻す */
+    transition-delay: 0s;
+}
 
 /* ===== ヘッダー ===== */
 
@@ -480,7 +501,7 @@ h1 a {
     justify-content: space-between;
     margin: 50px 0;
     letter-spacing: 1.0px;
-    font-size: clamp(12px, 3vw, 14px);
+    font-size: clamp(13px, 3vw, 16px);
 }
 
 .information img {
@@ -797,6 +818,7 @@ h1 a {
 
 .designer-title {
     font-size: clamp(14px, 3vw, 20px);
+    padding: 0 0 0 15px;
 }
 
 .designer-text {
@@ -805,11 +827,12 @@ h1 a {
     color: #3C3C3C;
     margin-bottom: 1.5em;
     text-align: left;
-    padding: 0;
+    padding: 0 0 0 15px;
 }
 
 .designer-name {
-    margin-top: 10px;
+    display: block;
+    line-height: 150%;
     font-size: clamp(16px, 4vw, 25px);
 }
 
@@ -849,6 +872,10 @@ h1 a {
 }
 
 @media (min-width:768px) {
+    .designer-title {
+        padding: 0;
+    }
+
     .designer {
         width: 95%;
         max-width: 1000px;
@@ -889,8 +916,6 @@ h1 a {
         gap: 20p;
         justify-content: center;
     }
-
-
 }
 
 /* ===== ウィッチ・マンション オリエンテッド ===== */

@@ -129,7 +129,7 @@
       <h2>LOCATION</h2>
       <div class="divider"></div>
       <h3>進化を遂げる街の中心、文化と未来が交わる場所</h3>
-      <div class="location-intro">
+      <div class="location-intro fade-in">
         <img src="./img/location-img_01.jpg" width="1920" height="1048" alt="夕方、ランプの灯る海辺の煉瓦道">
         <p class="location-text">海と街が、家族の暮らしに寄り添う</p>
         <p class="location-text2">今も進化を続ける横浜。<br>
@@ -163,7 +163,7 @@
         <div><img src="./img/location/location-shop_3.jpg" width="340" height="300"
             alt="ベーカリー『Le Soleil Bakery』まで徒歩3分（約0.2km）"></div>
       </div>
-      <img src="img/location.jpg" width="1920" height="1047" alt="CIRENA建設予定地をマークした周辺地図イメージ">
+      <img src="img/location.jpg" width="1920" height="1047" alt="CIRENA建設予定地をマークした周辺地図イメージ" class="fade-in">
       <p class="section-text">
         徒歩圏に揃う学び・暮らし・健やかさ。<br>
         教育・医療・商業・公園といった生活基盤が整うことで、安心感のある日常とともに、<br>
@@ -175,7 +175,7 @@
       <h2>ACCESS</h2>
       <div class="divider"></div>
       <h3>暮らしも仕事も、軽やかに、スムーズに</h3>
-      <div class="access-station-bloc">
+      <div class="access-station-bloc fade-in">
         <div class="access-station">
           <img src="./img/access-shinagawa.jpg" width="600" height="975" alt="品川駅まで約20分">
           <p>品川20分</p>
@@ -202,7 +202,7 @@
     <section class="architect">
       <h2>ARCHITECT</h2>
       <div class="divider"></div>
-      <img src="./img/cirena-yokohama.jpg" width="1920" height="1407" alt="横浜みなとみらいの新築分譲マンション外観イメージ">
+      <img src="./img/cirena-yokohama.jpg" width="1920" height="1407" alt="横浜みなとみらいの新築分譲マンション外観イメージ" class="fade-in">
       <h3>都市と未来を見晴らす、洗練のレジデンス</h3>
       <p class="section-text">時を超えて輝くタワーが、暮らしに静けさと開放感をもたらす。<br>
         都市の中心で、日々を特別にする住まいです。
@@ -218,7 +218,7 @@
       <h2>PLAN</h2>
       <div class="divider"></div>
       <h3>上質なプライベート空間を</h3>
-      <img src="./img/plan-4ldk-room_04.jpg" width="1920" height="1047" alt="4LDKモデルルームの内装イメージ">
+      <img src="./img/plan-4ldk-room_04.jpg" width="1920" height="1047" alt="4LDKモデルルームの内装イメージ" class="fade-in">
       <p class="section-text">洗練されたデザインと最新の技術、細部にまで行き届いたこだわり。<br>
         静けさと現代的なエッジが共存する空間で、あなたの新たな物語が始まります。
       </p>
@@ -259,7 +259,8 @@
       <h2>VALUE</h2>
       <div class="divider"></div>
       <h3>横浜という、不動のブランド</h3>
-      <img src="./img/location-yokohama-city_01.jpg" width="1920" height="1047" alt="歴史と発展が交差する横浜エリアの都市景観">
+      <img src="./img/location-yokohama-city_01.jpg" width="1920" height="1047" alt="歴史と発展が交差する横浜エリアの都市景観"
+        class="fade-in">
       <p class="section-text">歴史と発展を兼ね備えた横浜エリア。<br>
         希少な立地と高層レジデンスの価値が、時を経ても変わらない資産として未来へ受け継がれます。
       </p>
@@ -298,7 +299,7 @@
         高効率な設備を導入。<br>
         家計や環境に優しい省エネ性を備えたマンション。</h3>
       <img src="./img/wch-m-oriented.jpg" width="1920" height="1047" alt="WCH-M Oriented（ウィッチ・マンション
-        オリエンテッド）イメージ">
+        オリエンテッド）イメージ" class="fade-in">
       <p class="section-text">WCH-M Oriented（ウィッチ・マンション
         オリエンテッド）は、<br class="pc-br">建物の外皮断熱性能の向上と高効率の省エネ設備等の導入により、<br class="pc-br">
         住棟全体で年間の一次エネルギー消費量を25％以上削減することを目指すマンションです。</p>
@@ -359,54 +360,80 @@
 
   <script src="./js/jquery-3.7.1.min.js"></script>
   <script src="./js/smooth-scroll-master/dist/smooth-scroll.polyfills.min.js"></script>
+  <script src="./js/slick-1.8.1/slick/slick.min.js"></script>
   <script>
+    // ===================================
+    // ハンバーガーメニュー開閉
+    // ===================================
     const hamburger = document.querySelector(".hamburger");
     const navList = document.querySelector(".navigation");
-    // ハンバーガーメニュー開閉
+
     hamburger.addEventListener("click", () => {
       navList.classList.toggle("open");
       hamburger.classList.toggle("open");
     });
-  </script>
 
-
-  <script src="./js/slick-1.8.1/slick/slick.min.js"></script>
-  <script>
+    // ===================================
+    // Slickスライダーの初期化
+    // ===================================
     $(function () {
       // ロケーションのスライダー
       $('.slick-slider').slick({
-        slidesToShow: 5,       // 〇枚ずつ表示
+        slidesToShow: 5,       // 〇枚ずつ表示
         slidesToScroll: 1,
-        autoplay: true,        // 自動再生
-        autoplaySpeed: 3000,   // 0で常にスライド
+        autoplay: true,        // 自動再生
+        autoplaySpeed: 3000,   // 0で常にスライド
         cssEase: 'linear',
-        infinite: true,        // 無限ループ
-        arrows: false,         // 左右の矢印は非表示
-        pauseOnHover: false,   // ホバーで止めない
+        infinite: true,        // 無限ループ
+        arrows: false,         // 左右の矢印は非表示
+        pauseOnHover: false,   // ホバーで止めない
         responsive: [
           { breakpoint: 1440, settings: { slidesToShow: 4 } },
           { breakpoint: 768, settings: { slidesToShow: 3 } },
         ]
       });
     });
-    // JSで表示されたら .show をつける
-    document.addEventListener("DOMContentLoaded", () => {
-      const dividers = document.querySelectorAll(".divider");
 
-      const observer = new IntersectionObserver((entries) => {
+
+    // ===================================
+    // スクロールアニメーション（.divider, .fade-in）
+    // ===================================
+    document.addEventListener("DOMContentLoaded", () => {
+      // 監視対象をすべて取得（.dividerと.fade-in）
+      const elementsToObserve = document.querySelectorAll(".divider, .fade-in");
+
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2 // 要素の20%が見えたら発火
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+            // クラス名によって追加するクラスを変える
+            if (entry.target.classList.contains('divider')) {
+              entry.target.classList.add("show");
+            } else if (entry.target.classList.contains('fade-in')) {
+              entry.target.classList.add("is-visible");
+            }
+
+            // 一度表示されたら監視を終了
             observer.unobserve(entry.target);
           }
         });
-      });
+      }, options);
 
-      dividers.forEach(el => observer.observe(el));
+      // 各要素の監視を開始
+      elementsToObserve.forEach(el => observer.observe(el));
     });
 
 
+    // ===================================
+    // ヒーロースライダーとスプラッシュスクリーン
+    // ===================================
     document.addEventListener('DOMContentLoaded', () => {
+      // ヒーローメインスライダー処理
       const slides = document.querySelectorAll('#hero-slider .slide');
       let current = 0;
       const intervalTime = 5000; // 5秒ごとに切り替え
@@ -418,39 +445,34 @@
         slides[current].classList.add('active');
       }
 
+      // スプラッシュスクリーン処理
       window.onload = function () {
         const splash = document.getElementById('splash-screen');
         const isVisited = sessionStorage.getItem('hasVisitedSplash');
 
         if (isVisited) {
-          // ★ 訪問済みの場合：すぐにスプラッシュ画面を非表示にする
+          // 訪問済みの場合：すぐにスプラッシュ画面を非表示にする
           splash.style.opacity = '0';
           splash.style.visibility = 'hidden';
           splash.style.transition = 'none'; // アニメーションを無効化
 
-          // キャッチコピーの要素も非表示にしておく（念のため）
           const catchphrase = splash.querySelector('.catchphrase');
           if (catchphrase) {
             catchphrase.style.opacity = '0';
           }
 
         } else {
-          // ★ 初回訪問の場合：アニメーションを実行し、フラグを立てる
-
-          // 訪問フラグを保存 (セッション中のみ有効)
+          // 初回訪問の場合：アニメーションを実行し、フラグを立てる
           sessionStorage.setItem('hasVisitedSplash', 'true');
 
           // フェードアウトアニメーションを実行 (CSSのタイミングに合わせて調整)
-          // CSSで設定した 2.5秒後にフェードアウトを開始します
           setTimeout(() => {
             splash.classList.add('fade-out');
           }, 2500);
         }
       };
     });
-
   </script>
-
 </body>
 
 </html>
